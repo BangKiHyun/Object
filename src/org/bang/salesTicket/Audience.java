@@ -1,4 +1,4 @@
-package org.bang;
+package org.bang.salesTicket;
 
 public class Audience {
     private Bag bag;

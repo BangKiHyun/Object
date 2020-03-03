@@ -1,4 +1,4 @@
-package org.bang;
+package org.bang.salesTicket;
 
 public class Theater {
     private TicketSeller ticketSeller;

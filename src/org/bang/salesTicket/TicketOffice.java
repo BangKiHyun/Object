@@ -1,5 +1,4 @@
-package org.bang;
-
+package org.bang.salesTicket;
 
 import java.util.ArrayList;
 import java.util.Arrays;
