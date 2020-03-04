@@ -1,10 +1,10 @@
 package org.bang.reserveMovie;
 
-public class PercentDiscountPlicy extends DiscountPolicy {
+public class PercentDiscountPolicy extends DefaultDiscountPolicy {
 
     private double percent;
 
-    public PercentDiscountPlicy(double percent, DiscountCondition... conditions) {
+    public PercentDiscountPolicy(double percent, DiscountCondition... conditions) {
         super(conditions);
         this.percent = percent;
     }
