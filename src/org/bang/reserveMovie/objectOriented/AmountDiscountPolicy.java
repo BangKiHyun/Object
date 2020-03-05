@@ -1,4 +1,4 @@
-package org.bang.reserveMovie;
+package org.bang.reserveMovie.objectOriented;
 
 public class AmountDiscountPolicy extends DefaultDiscountPolicy {
     private Money discountAmount;

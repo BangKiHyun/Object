@@ -1,4 +1,4 @@
-package org.bang.reserveMovie;
+package org.bang.reserveMovie.objectOriented;
 
 public class PercentDiscountPolicy extends DefaultDiscountPolicy {
 

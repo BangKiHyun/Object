@@ -1,4 +1,4 @@
-package org.bang.reserveMovie;
+package org.bang.reserveMovie.objectOriented;
 
 public class SequenceCondition implements DiscountCondition {
     private int sequence;
