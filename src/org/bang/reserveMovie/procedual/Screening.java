@@ -1,5 +1,7 @@
 package org.bang.reserveMovie.procedual;
 
+import org.bang.reserveMovie.objectOriented.Money;
+
 import java.time.LocalDateTime;
 
 public class Screening {
@@ -7,27 +9,23 @@ public class Screening {
     private int sequence;
     private LocalDateTime whenScreened;
 
-    public Movie getMovie() {
-        return movie;
-    }
-
-    public void setMovie(Movie movie) {
+    public Screening(Movie movie, int sequence, LocalDateTime whenScreened) {
         this.movie = movie;
-    }
-
-    public int getSequence() {
-        return sequence;
-    }
-
-    public void setSequence(int sequence) {
         this.sequence = sequence;
-    }
-
-    public LocalDateTime getWhenScreened() {
-        return whenScreened;
-    }
-
-    public void setWhenScreened(LocalDateTime whenScreened) {
         this.whenScreened = whenScreened;
+    }
+
+    public Money calculateFee(int audienceCount) {
+        switch (movie.getMovieType()) {
+            case AMOUUNT_DISCOUNT:
+                if (movie.isDiscountable(whenScreened, sequence)) {
+                    return movie.calculateAmountDiscountedFee().times(audienceCount);
+                }
+            case PERCENT_DISCOUNT:
+                if (movie.isDiscountable(whenScreened, sequence)) {
+                    return movie.calculatePercentDiscountedFee().times(audienceCount);
+                }
+        }
+        return movie.calculateNoneDiscountedFee().times(audienceCount);
     }
 }
