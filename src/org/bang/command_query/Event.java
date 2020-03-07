@@ -19,15 +19,13 @@ public class Event {
         if (from.getDayOfWeek() != schedule.getDayOfWeek() ||
                 from.toLocalTime().equals(schedule.getFrom()) ||
                 !duration.equals(schedule.getDuration())) {
-            //쿼리가 상태르 변경
-            reschedule(schedule);
             return false;
         }
         return true;
     }
 
     //명령
-    private void reschedule(RecurringSchedule schedule) {
+    public void reschedule(RecurringSchedule schedule) {
         from = LocalDateTime.of(from.toLocalDate().plusDays(daysDistance(schedule)), schedule.getFrom());
 
         duration = schedule.getDuration();
