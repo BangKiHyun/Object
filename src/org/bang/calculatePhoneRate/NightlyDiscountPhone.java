@@ -14,6 +14,8 @@ public class NightlyDiscountPhone {
     private Duration second;
     private List<Call> calls = new ArrayList<>();
 
+    private double taxRate;
+
     public NightlyDiscountPhone(Money nightlyAmount, Money regularAmount, Duration second) {
         this.nightlyAmount = nightlyAmount;
         this.regularAmount = regularAmount;
@@ -32,6 +34,6 @@ public class NightlyDiscountPhone {
                         regularAmount.times(call.getDuration().getSeconds() / second.getSeconds()));
             }
         }
-        return result;
+        return result.minus(result.times(taxRate));
     }
 }
