@@ -3,37 +3,27 @@ package org.bang.calculatePhoneRate;
 import org.bang.reserveMovie.objectOriented.Money;
 
 import java.time.Duration;
-import java.util.ArrayList;
-import java.util.List;
 
-public class NightlyDiscountPhone {
+public class NightlyDiscountPhone extends Phone {
     private static final int LATE_NIGHT_HOUR = 22;
 
     private Money nightlyAmount;
     private Money regularAmount;
     private Duration second;
-    private List<Call> calls = new ArrayList<>();
 
-    private double taxRate;
 
-    public NightlyDiscountPhone(Money nightlyAmount, Money regularAmount, Duration second) {
+    public NightlyDiscountPhone(Money nightlyAmount, Money regularAmount, Duration second, double taxRate) {
+        super(taxRate);
         this.nightlyAmount = nightlyAmount;
         this.regularAmount = regularAmount;
         this.second = second;
     }
 
-    public Money calculateFee() {
-        Money result = Money.ZERO;
-
-        for (Call call : calls) {
-            if (call.getFrom().getHour() >= LATE_NIGHT_HOUR) {
-                result = result.plus(
-                        nightlyAmount.times(call.getDuration().getSeconds() / second.getSeconds()));
-            } else {
-                result = result.plus(
-                        regularAmount.times(call.getDuration().getSeconds() / second.getSeconds()));
-            }
+    @Override
+    protected Money calculateCallFee(Call call) {
+        if (call.getFrom().getHour() >= LATE_NIGHT_HOUR) {
+            return nightlyAmount.times(call.getDuration().getSeconds() / second.getSeconds());
         }
-        return result.minus(result.times(taxRate));
+        return regularAmount.times(call.getDuration().getSeconds() / second.getSeconds());
     }
 }
