@@ -8,8 +8,7 @@ public class RegularPhone extends Phone {
     private Money amount;
     private Duration second;
 
-    public RegularPhone(Money amount, Duration second, double taxRate) {
-        super(taxRate);
+    public RegularPhone(Money amount, Duration second) {
         this.amount = amount;
         this.second = second;
     }
