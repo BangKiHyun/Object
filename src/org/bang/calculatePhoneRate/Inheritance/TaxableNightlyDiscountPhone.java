@@ -1,4 +1,4 @@
-package org.bang.calculatePhoneRate;
+package org.bang.calculatePhoneRate.Inheritance;
 
 import org.bang.reserveMovie.objectOriented.Money;
 

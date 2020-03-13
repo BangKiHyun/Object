@@ -1,4 +1,4 @@
-package org.bang.calculatePhoneRate;
+package org.bang.calculatePhoneRate.Inheritance;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
