@@ -1,6 +1,8 @@
 package org.bang.reserveMovie.objectOriented;
 
+import java.security.InvalidParameterException;
 import java.time.Duration;
+import java.time.LocalDateTime;
 
 public class Movie {
     private String title;
@@ -24,6 +26,12 @@ public class Movie {
     }
 
     public Money calculateMovieFee(Screening screening) {
+        if (screening != null || screening.getStartTime().isBefore(LocalDateTime.now())) {
+            throw new InvalidParameterException();
+        }
+
         return fee.minus(discountPolicy.calculateDiscountAmount(screening));
     }
+
+
 }

@@ -3,10 +3,10 @@ package org.bang.reserveMovie.objectOriented;
 import java.time.Duration;
 
 public class Factory {
-    public Movie createAvatarMovie(){
+    public Movie createAvatarMovie() {
         return new Movie("아바타",
                 Duration.ofMinutes(120),
                 Money.wons(10000),
-                new AmountDiscountPolicy());
+                new NoneDiscountPolicy());
     }
 }
