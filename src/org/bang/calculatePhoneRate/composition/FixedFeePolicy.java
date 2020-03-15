@@ -5,11 +5,11 @@ import org.bang.reserveMovie.objectOriented.Money;
 
 import java.time.Duration;
 
-public class RegularPolicy extends BasicPolicy {
+public class FixedFeePolicy extends BasicPolicy {
     private Money amount;
     private Duration seconds;
 
-    public RegularPolicy(Money amount, Duration seconds) {
+    public FixedFeePolicy(Money amount, Duration seconds) {
         this.amount = amount;
         this.seconds = seconds;
     }
