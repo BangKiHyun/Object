@@ -1,4 +1,4 @@
-package vo;
+package calculation.domain.vo;
 
 import java.math.BigDecimal;
 
